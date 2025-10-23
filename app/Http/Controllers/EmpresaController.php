@@ -36,11 +36,11 @@ class EmpresaController extends Controller
         ]);
         $this->empresa->create([
             'razao-social' => $request->input('razao-social'),
-            'cnpj' => $request->input('cnpj'),
-            'email' => $request->input('email'),
-            'password' => bcrypt($request->input('password')),
-            'created_at' => now(),
-            'updated_at' => now(),
+            'cnpj'         => $request->input('cnpj'),
+            'email'        => $request->input('email'),
+            'password'     => bcrypt($request->input('password')),
+            'created_at'   => now(),
+            'updated_at'   => now(),
         ]);
             return redirect()->back()->with('success', 'Empresa cadastrada com sucesso.');
 

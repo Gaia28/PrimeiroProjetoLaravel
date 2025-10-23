@@ -19,7 +19,7 @@
             @csrf
             <div class="mb-6">
                  <label for ="name" class="block text-gray-700 text-sm font-bold mb-2">Razão social</label>
-                <input type="text" id="razao-social" name="razaoSocial" required 
+                <input type="text" id="razao-social" name="razao-social" required 
                        class="w-full px-20 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
 

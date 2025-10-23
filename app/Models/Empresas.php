@@ -11,5 +11,5 @@ class Empresas extends Model
 {
     use HasFactory;
     protected $table = 'empresas';
-    protected $fillable = ['razaoSocial', 'cnpj', 'email','password'];
+    protected $fillable = ['razao-social', 'cnpj', 'email','password'];
 }
