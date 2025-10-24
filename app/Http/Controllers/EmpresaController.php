@@ -28,7 +28,8 @@ class EmpresaController extends Controller
     
     public function store(Request $request)
     {
-        $request->validate([
+        try{
+            $request->validate([
             'razao-social' => 'required|string|max:255',
             'cnpj' => 'required|string|max:20',
             'email' => 'required|email',
@@ -43,6 +44,9 @@ class EmpresaController extends Controller
             'updated_at'   => now(),
         ]);
             return redirect()->back()->with('success', 'Empresa cadastrada com sucesso.');
+        }catch(\Exception $e){
+            return redirect()->back()->with(['error' => 'Erro ao cadastrar empresa: ']);
+        }
 
     }
 

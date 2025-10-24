@@ -2,6 +2,24 @@
 
 <body class="bg-gray-100 min-h-screen flex">
 
+    <!-- Mensagens de Sucesso -->
+    @if(session('success'))
+        <div class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded shadow-lg" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <!-- Mensagens de Erro -->
+    @if($errors->any())
+        <div class="fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded shadow-lg" role="alert">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="md:flex w-1/2 flex-col items-center justify-center">
        <h1 class="text-5xl font-extrabold mb-4 text-center text-blue-800">
             Bem-vindo ao <br> Cadastro Empresarial
@@ -47,5 +65,15 @@
             </button>
         </form>
     </div>
-
+<script>
+    // Fazer as mensagens desaparecerem após 5 segundos
+    setTimeout(function() {
+        const alerts = document.querySelectorAll('[role="alert"]');
+        alerts.forEach(alert => {
+            alert.style.opacity = '0';
+            alert.style.transition = 'opacity 1s';
+            setTimeout(() => alert.remove(), 1000);
+        });
+    }, 5000);
+</script>
 </body>
