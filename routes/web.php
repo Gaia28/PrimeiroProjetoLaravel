@@ -6,12 +6,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 //ROTAS AUTENTICAÇÃO
-Route::get('auth/', [LoginController::class, 'showForm']);
+Route::get('/', [LoginController::class, 'showForm']);
 Route::post('validar-login', [LoginController::class,'validarLogin']);
 
 //ROTAS EMPRESAS
