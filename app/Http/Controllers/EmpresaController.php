@@ -15,13 +15,14 @@ class EmpresaController extends Controller
     }
     public function index()
     {
-        
+        $empresas= Empresas::all();
+        return view('empresas.empresas', ['empresas' => $empresas]);
     }
 
    
     public function create()
     {
-        return view('auth/cadastroEmpresa');
+        return view('empresas/cadastroEmpresa');
 
     }
 
@@ -31,9 +32,9 @@ class EmpresaController extends Controller
         try{
             $request->validate([
             'razao-social' => 'required|string|max:255',
-            'cnpj' => 'required|string|max:20',
-            'email' => 'required|email',
-            'password' => 'required|min:6',
+            'cnpj'         => 'required|string|max:20',
+            'email'        => 'required|email',
+            'password'     => 'required|min:6',
         ]);
         $this->empresa->create([
             'razao-social' => $request->input('razao-social'),
@@ -45,7 +46,7 @@ class EmpresaController extends Controller
         ]);
             return redirect()->back()->with('success', 'Empresa cadastrada com sucesso.');
         }catch(\Exception $e){
-            return redirect()->back()->with(['error' => 'Erro ao cadastrar empresa: ']);
+            return redirect()->back()->with('error', 'Erro ao cadastrar empresa: ');
         }
 
     }
