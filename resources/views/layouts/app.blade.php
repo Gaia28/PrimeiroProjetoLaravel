@@ -8,5 +8,7 @@
 <body>
     <script src="https://cdn.tailwindcss.com"></script>
     @yield('content')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </body>
 </html>
