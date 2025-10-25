@@ -48,6 +48,7 @@ class EmpresaController extends Controller
         }catch(\Exception $e){
             return redirect()->back()->with('error', 'Erro ao cadastrar empresa: ');
         }
+        
 
     }
 
