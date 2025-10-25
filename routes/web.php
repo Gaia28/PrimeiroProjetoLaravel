@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\EmpresaController;
-use App\Http\Controllers\LoginControllor;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
@@ -13,11 +12,12 @@ Route::get('/', function () {
 
 //ROTAS AUTENTICAÇÃO
 Route::get('auth/', [LoginController::class, 'showForm']);
-Route::post('validate_register', [LoginController::class,'processRegister']);
+Route::post('validar-login', [LoginController::class,'validarLogin']);
 
 //ROTAS EMPRESAS
 Route::get('cadastre-sua-empresa', [EmpresaController::class, 'create'])->name('empresas.create');
 Route::post('cadastro-empresa', [EmpresaController::class, 'store'])->name('empresas.store');
+Route::get('/empresas', [EmpresaController::class, 'index']);
 
 //ROTA HOME
 Route::get('home', [HomeController::class,'index'])->name('homi');
